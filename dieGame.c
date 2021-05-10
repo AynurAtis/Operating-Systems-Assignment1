@@ -23,7 +23,7 @@ void orderUsers (char Player1[], char Player2[], char Player3[], char User[], in
 	char userList[4];
 	int pointList[4]; // the array holds the total points of players
 	pointList[0] = totalP1;
-	pointList[1] = totalP2; 
+	pointList[1] = totalP2;
 	pointList[2] = totalP3;
 	pointList[3] = totalUser;
 	int tmp;
@@ -35,7 +35,7 @@ void orderUsers (char Player1[], char Player2[], char Player3[], char User[], in
 			{
 				tmp = pointList[i];
 				pointList[i] = pointList[j];
-				pointList[j] = tmp;	
+				pointList[j] = tmp;
 			}
 		}
 	}
@@ -43,7 +43,7 @@ void orderUsers (char Player1[], char Player2[], char Player3[], char User[], in
 	int P1=0, P2=0, P3=0, Us=0; //  I using counter for all players because if there are players who have the same point, I want to write the screen all one
 	for(int k = 0; k<4; k++)
 	{
-	
+
 		if(pointList[k] == totalP1 && P1 == 0)
 			{
 				if(totalP1 >=20) // if player1 has 20 points or more than 20 points, player1 is gained the game
@@ -92,7 +92,7 @@ void orderUsers (char Player1[], char Player2[], char Player3[], char User[], in
 					Us++;
 				}
 			}
-		
+
 	}
 
 }
@@ -102,19 +102,20 @@ void finalResult(char userName[]) // Final points function
 	printf("%s reached 20 points.\n", userName);
 	printf("Congratulations! %s have won the game.\n\n", userName);
 	printf("Final Results Table: \n");
-	
+
 }
 
-int gameRules(char user[]) 
+
+int gameRules(char user[])
 {
 	// random dice numbers
-	int dice_1 = rand() % 6 + 1;	
+	int dice_1 = rand() % 6 + 1;
 	int dice_2 = rand() % 6 + 1;
 	int dice_3 = rand() % 6 + 1;
 	// -------------------------------------------
-	
+
 	printf("%s rolled: %d-%d-%d\n", user,dice_1,dice_2,dice_3);
-	
+
 	if(dice_1 == 1 && dice_2 == 1 && dice_3 == 1)
 	{
 		printf("%s lost 10 points\n", user);
@@ -155,19 +156,19 @@ int gameRules(char user[])
 		printf("%s lost %d points\n", user,dice_1);
 		return -dice_1;
 	}
-	else if ((dice_1 == 1 && dice_2 == 2 && dice_3 ==3) || (dice_1 == 1 && dice_2 == 3 && dice_3 ==2) || (dice_1 == 2 && dice_2 == 1 && dice_3 ==3) || (dice_1 == 2 && dice_2 == 3 && dice_3 ==1) 
+	else if ((dice_1 == 1 && dice_2 == 2 && dice_3 ==3) || (dice_1 == 1 && dice_2 == 3 && dice_3 ==2) || (dice_1 == 2 && dice_2 == 1 && dice_3 ==3) || (dice_1 == 2 && dice_2 == 3 && dice_3 ==1)
 		|| (dice_1 == 3 && dice_2 == 2 && dice_3 ==1) || (dice_1 == 3 && dice_2 == 1 && dice_3 ==2))
 	{
 		printf("%s lost 3 points\n", user);
 		return -3;
 	}
-	else if ((dice_1 == 4 && dice_2 == 5 && dice_3 ==6) || (dice_1 == 4 && dice_2 == 6 && dice_3 ==5) || (dice_1 == 5 && dice_2 == 4 && dice_3 ==6) || (dice_1 == 5 && dice_2 == 6 && dice_3 ==4) 
+	else if ((dice_1 == 4 && dice_2 == 5 && dice_3 ==6) || (dice_1 == 4 && dice_2 == 6 && dice_3 ==5) || (dice_1 == 5 && dice_2 == 4 && dice_3 ==6) || (dice_1 == 5 && dice_2 == 6 && dice_3 ==4)
 		|| (dice_1 == 6 && dice_2 == 4 && dice_3 ==5) || (dice_1 == 6 && dice_2 == 5 && dice_3 ==4))
 	{
 		printf("%s gained 3 points\n", user);
 		return 3;
 	}
- 
+
 	else if(dice_1 == dice_2 == dice_3)
 	{
 		printf("%s gained 5 points\n", user);
@@ -179,4 +180,3 @@ int gameRules(char user[])
 		return 0;
 	}
 }
-
